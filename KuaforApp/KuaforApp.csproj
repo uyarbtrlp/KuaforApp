@@ -1,0 +1,130 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20200317111805_IdentityCreatee.cs" />
+    <Compile Remove="Migrations\20200317111805_IdentityCreatee.Designer.cs" />
+    <Compile Remove="Migrations\20200317111944_IdentityCreatee.cs" />
+    <Compile Remove="Migrations\20200317111944_IdentityCreatee.Designer.cs" />
+    <Compile Remove="Migrations\20200317112318_IdentityCreatee.cs" />
+    <Compile Remove="Migrations\20200317112318_IdentityCreatee.Designer.cs" />
+    <Compile Remove="Migrations\20200320100531_deneme.cs" />
+    <Compile Remove="Migrations\20200320100531_deneme.Designer.cs" />
+    <Compile Remove="Migrations\20200321103413_Indetity.cs" />
+    <Compile Remove="Migrations\20200321103413_Indetity.Designer.cs" />
+    <Compile Remove="Migrations\20200321103645_Indetity.cs" />
+    <Compile Remove="Migrations\20200321103645_Indetity.Designer.cs" />
+    <Compile Remove="Migrations\20200321122144_Identity.cs" />
+    <Compile Remove="Migrations\20200321122144_Identity.Designer.cs" />
+    <Compile Remove="Migrations\20200322105745_database.cs" />
+    <Compile Remove="Migrations\20200322105745_database.Designer.cs" />
+    <Compile Remove="Migrations\20200322110206_database.cs" />
+    <Compile Remove="Migrations\20200322110206_database.Designer.cs" />
+    <Compile Remove="Migrations\20200322110942_database.cs" />
+    <Compile Remove="Migrations\20200322110942_database.Designer.cs" />
+    <Compile Remove="Migrations\20200322111537_database.cs" />
+    <Compile Remove="Migrations\20200322111537_database.Designer.cs" />
+    <Compile Remove="Migrations\20200322114426_database.cs" />
+    <Compile Remove="Migrations\20200322114426_database.Designer.cs" />
+    <Compile Remove="Migrations\20200322121941_database.cs" />
+    <Compile Remove="Migrations\20200322121941_database.Designer.cs" />
+    <Compile Remove="Migrations\20200322122107_database.cs" />
+    <Compile Remove="Migrations\20200322122107_database.Designer.cs" />
+    <Compile Remove="Migrations\20200322124906_database.cs" />
+    <Compile Remove="Migrations\20200322124906_database.Designer.cs" />
+    <Compile Remove="Migrations\20200322125317_database.cs" />
+    <Compile Remove="Migrations\20200322125317_database.Designer.cs" />
+    <Compile Remove="Migrations\20200323095604_database.cs" />
+    <Compile Remove="Migrations\20200323095604_database.Designer.cs" />
+    <Compile Remove="Migrations\20200323100759_database.cs" />
+    <Compile Remove="Migrations\20200323100759_database.Designer.cs" />
+    <Compile Remove="Migrations\20200323102413_database.cs" />
+    <Compile Remove="Migrations\20200323102413_database.Designer.cs" />
+    <Compile Remove="Migrations\20200323103212_database.cs" />
+    <Compile Remove="Migrations\20200323103212_database.Designer.cs" />
+    <Compile Remove="Migrations\20200323105800_database.cs" />
+    <Compile Remove="Migrations\20200323105800_database.Designer.cs" />
+    <Compile Remove="Migrations\20200323114811_database.cs" />
+    <Compile Remove="Migrations\20200323114811_database.Designer.cs" />
+    <Compile Remove="Migrations\20200323120000_database.cs" />
+    <Compile Remove="Migrations\20200323120000_database.Designer.cs" />
+    <Compile Remove="Migrations\20200323121049_database.cs" />
+    <Compile Remove="Migrations\20200323121049_database.Designer.cs" />
+    <Compile Remove="Migrations\20200323121332_database.cs" />
+    <Compile Remove="Migrations\20200323121332_database.Designer.cs" />
+    <Compile Remove="Migrations\20200323122325_database.cs" />
+    <Compile Remove="Migrations\20200323122325_database.Designer.cs" />
+    <Compile Remove="Migrations\20200326094758_database.cs" />
+    <Compile Remove="Migrations\20200326094758_database.Designer.cs" />
+    <Compile Remove="Migrations\20200326105027_database.cs" />
+    <Compile Remove="Migrations\20200326105027_database.Designer.cs" />
+    <Compile Remove="Migrations\20200327085633_database.cs" />
+    <Compile Remove="Migrations\20200327085633_database.Designer.cs" />
+    <Compile Remove="Migrations\20200327085739_database.cs" />
+    <Compile Remove="Migrations\20200327085739_database.Designer.cs" />
+    <Compile Remove="Migrations\20200327090519_database.cs" />
+    <Compile Remove="Migrations\20200327090519_database.Designer.cs" />
+    <Compile Remove="Migrations\20200327095719_database.cs" />
+    <Compile Remove="Migrations\20200327095719_database.Designer.cs" />
+    <Compile Remove="Migrations\20200327102000_database.cs" />
+    <Compile Remove="Migrations\20200327102000_database.Designer.cs" />
+    <Compile Remove="Migrations\20200328110238_datanase.cs" />
+    <Compile Remove="Migrations\20200328110238_datanase.Designer.cs" />
+    <Compile Remove="Migrations\20200328112049_database.cs" />
+    <Compile Remove="Migrations\20200328112049_database.Designer.cs" />
+    <Compile Remove="Migrations\20200331112242_database.cs" />
+    <Compile Remove="Migrations\20200331112242_database.Designer.cs" />
+    <Compile Remove="Migrations\20200407113652_database.cs" />
+    <Compile Remove="Migrations\20200407113652_database.Designer.cs" />
+    <Compile Remove="Migrations\20200408104932_database.cs" />
+    <Compile Remove="Migrations\20200408104932_database.Designer.cs" />
+    <Compile Remove="Migrations\20200408105214_database.cs" />
+    <Compile Remove="Migrations\20200408105214_database.Designer.cs" />
+    <Compile Remove="Migrations\20200408111126_database.cs" />
+    <Compile Remove="Migrations\20200408111126_database.Designer.cs" />
+    <Compile Remove="Migrations\20200409115513_database.cs" />
+    <Compile Remove="Migrations\20200409115513_database.Designer.cs" />
+    <Compile Remove="Migrations\20200409120412_database.cs" />
+    <Compile Remove="Migrations\20200409120412_database.Designer.cs" />
+    <Compile Remove="Migrations\20200409120959_database.cs" />
+    <Compile Remove="Migrations\20200409120959_database.Designer.cs" />
+    <Compile Remove="Migrations\20200409121327_database.cs" />
+    <Compile Remove="Migrations\20200409121327_database.Designer.cs" />
+    <Compile Remove="Migrations\20200409121600_database.cs" />
+    <Compile Remove="Migrations\20200409121600_database.Designer.cs" />
+    <Compile Remove="Migrations\Data\20200322110952_database2.cs" />
+    <Compile Remove="Migrations\Data\20200322110952_database2.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.2">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Identity.Core" Version="3.1.2" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Migrations\Data\" />
+    <Folder Include="Upload\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="Views\Account\Login.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
+
+
+</Project>

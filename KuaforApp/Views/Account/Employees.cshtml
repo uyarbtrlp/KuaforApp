@@ -1,0 +1,57 @@
+﻿@model IEnumerable<Store>
+@{
+    ViewData["Title"] = "Employees";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<style>
+    .dropdown-toggle::after {
+        display: none;
+    }
+
+    @@media screen and (max-width:1024px) {
+    }
+</style>
+<h1 style="color:white">Çalışanlar</h1>
+
+
+
+<hr style="border-bottom: 0.5px solid white" />
+<a href="/Account/AddEmployee" class="btn btn-success"><i class="fas fa-plus mr-2"></i>Yeni Çalışan Ekle</a>
+<div class="row">
+    @foreach (var item in Model)
+    {
+        if (item.Employees.Count() == 0)
+        {
+            <div class="alert alert-danger mt-3">Şu anda çalışanınız bulunmamaktadır.</div>
+        }
+        else
+        {
+            @foreach (var employee in item.Employees)
+            {
+                <div class="col-lg-4 col-md-6">
+                    <div class="card mt-2" style="width: 21rem;">
+
+
+                        <div class="card-body">
+                            <h5 class="card-title">@employee.Name @employee.Surname</h5>
+
+
+
+                        </div>
+                        <div class="card-footer">
+                            <a href="/Account/AddUser/@employee.Id" class="btn btn-success btn-sm"> <i class="fas fa-plus" style="margin-right:5px"></i>Müşteri Ekle</a>
+                            <a href="/Account/DetailsUser/@employee.Id" class="btn btn-primary btn-sm"><i class="fas fa-eye" style="margin-right:5px"></i>Müşterileri Görüntüle</a>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+
+            }
+        }
+
+    }
+
+</div>

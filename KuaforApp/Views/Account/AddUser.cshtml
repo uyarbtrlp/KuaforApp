@@ -1,0 +1,140 @@
+﻿@model KuaforApp.Contexts.EmployeesUser
+@{
+    ViewData["Title"] = "AddUser";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<style>
+    .form-group {
+        background: white;
+        border: 1px gray solid;
+        border-radius: .25rem;
+    }
+
+    .register {
+        position: absolute;
+        padding-top: 12.5%;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto auto auto auto;
+    }
+
+    .validateCss {
+        color: #721c24;
+        background-color: #f8d7da;
+        border-color: #f5c6cb;
+        border-radius: .25rem;
+    }
+
+        .validateCss ul {
+            columns: 2;
+            -webkit-columns: 2;
+            -moz-columns: 2;
+            list-style: none
+        }
+
+            .validateCss ul li {
+            }
+
+                .validateCss ul li::before {
+                    content: "\f06a";
+                    font-family: 'Font Awesome\ 5 Free';
+                    font-weight: 900;
+                    display: inline-block;
+                    margin-left: -1.3em; /* same as padding-left set on li */
+                    width: 1.3em;
+                }
+
+
+
+    input[type="file"] {
+        display: none;
+    }
+
+    .custom-file-upload {
+        border: 1px solid #ccc;
+        display: inline-block;
+        padding: 6px 12px;
+        cursor: pointer;
+    }
+</style>
+
+<form asp-controller="Account" asp-action="AddUser" enctype="multipart/form-data" method="post">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-12">
+
+
+
+                <div class="register">
+
+
+
+
+                    <div class="form-group">
+                        <div class="validateCss" asp-validation-summary="All">
+
+
+                        </div>
+
+                        <div class="p-2">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Adı</label>
+                                    <input type="text" name="name" id="name" class="form-control" />
+
+
+                                    <label class="mt-1">Soyadı</label>
+                                    <input type="text" name="surname" id="surname" class="form-control" />
+                                    <label>Telefon Numarası</label>
+                                    <input type="text" name="phone" id="phone" class="form-control" />
+
+
+                                    <label class="mt-1">Geleceği Saat</label>
+                                    <input type="text" name="hour" id="hour" class="form-control" />
+                                    <label class="mt-1">Yapılacak İşlemler</label>
+                                    <input type="text" name="transactions" id="transactions" class="form-control" />
+                                    <label class="mt-1">Ödeyeceği Fiyat</label>
+                                    <input type="text" name="payment" id="payment" class="form-control" />
+
+
+
+                                    <button type="submit" id="submit" class="btn btn-primary mt-5">Ekle</button>
+
+
+
+                                </div>
+
+
+
+                            </div>
+
+
+
+
+
+
+
+
+
+                        </div>
+
+
+
+
+
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>
+
+</form>
+
+

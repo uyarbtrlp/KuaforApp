@@ -1,0 +1,50 @@
+﻿@model KuaforApp.Contexts.EmployeesUser
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+
+<div class="alert alert-danger"><i class="fas fa-exclamation-circle mr-2"></i>Silmek istediğinizden emin misiniz?</div>
+<div class="text-white">
+    <h4>Kullanıcı:</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Surname)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Surname)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PhoneNumber)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PhoneNumber)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.TimeOfArrival)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TimeOfArrival)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Employee)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Employee.Id)
+        </dd class>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <button type="submit" class="btn btn-danger"><i class="fas fa-trash-alt mr-2"></i>Sil</button> |
+        <a href="/Account/DetailsUser/@Model.EmployeeId" class="btn btn-secondary"><i class="fas fa-arrow-circle-left mr-2"></i>Listeye Geri Dön</a>
+    </form>
+</div>

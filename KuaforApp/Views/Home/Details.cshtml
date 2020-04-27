@@ -1,0 +1,426 @@
+﻿@model IEnumerable<KuaforApp.Models.Store>
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<head>
+    <style>
+        * {
+            box-sizing: border-box
+        }
+
+        /* Slideshow container */
+        .slideshow-container {
+            max-width: 1000px;
+            position: relative;
+            margin: auto;
+        }
+
+        /* Hide the images by default */
+        .mySlides {
+            display: none;
+        }
+
+        textarea {
+            resize: none;
+        }
+
+        /* Next & previous buttons */
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            margin-top: -22px;
+            padding: 16px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+        }
+
+        /* Position the "next button" to the right */
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+            /* On hover, add a black background color with a little bit see-through */
+            .prev:hover, .next:hover {
+                background-color: rgba(0,0,0,0.8);
+            }
+
+        /* Caption text */
+        .text {
+            color: #f2f2f2;
+            font-size: 15px;
+            padding: 8px 12px;
+            position: absolute;
+            bottom: 8px;
+            width: 100%;
+            text-align: center;
+        }
+
+        /* Number text (1/3 etc) */
+        .numbertext {
+            color: #f2f2f2;
+            font-size: 12px;
+            padding: 8px 12px;
+            position: absolute;
+            top: 0;
+        }
+
+        /* The dots/bullets/indicators */
+        .dot {
+            cursor: pointer;
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+
+            .activee, .dot:hover {
+                background-color: #717171;
+            }
+
+        @@media only screen and (max-width: 769px) {
+            #commentText{
+                width:auto !important;
+            }
+             .media-body p{
+                width:auto !important;
+                
+            }
+        }
+        @@media screen and (max-width:321px) {
+            .employee{
+                width:20rem !important;
+            }
+        }
+        
+    </style>
+</head>
+
+<div class="container text-white mt-5">
+    <div class="row">
+        <div class="col-md-6">
+            <!-- Slideshow container -->
+            <div class="slideshow-container">
+                @foreach (var item in Model)
+                {
+                    foreach (var photo in item.Images)
+                    {
+                        <div class="mySlides">
+
+                            <img src="/Upload/@photo.Name" width="500" style="        width: 100%;
+        border-radius: 10px;
+        height: auto
+">
+
+                        </div>
+                    }
+                }
+
+                <!-- Full-width images with number and caption text -->
+                <!-- Next and previous buttons -->
+                <a class="prev" style="color:white" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" style="color:white" onclick="plusSlides(1)">&#10095;</a>
+            </div>
+            <br>
+
+            <!-- The dots/circles -->
+            <div style="text-align:center">
+                @foreach (var item in Model)
+                {
+                    for (var i = 0; i < item.Images.Count(); i++)
+                    {
+                        <span class="dot" onclick="currentSlide(i)"></span>
+                    }
+                }
+
+
+            </div>
+
+
+        </div>
+        <div class="col-md-6">
+            @foreach (var item in Model)
+            {
+                <div class="row mt-1">
+                    <div class="col-md-12">
+
+                        <h1>@item.Name</h1>
+
+
+                    </div>
+                </div>
+                <div class="row mt-1">
+                    <div class="col-md-12">
+
+
+
+
+
+                        @item.Description
+
+                    </div>
+                </div>
+                <div class="row  mt-1">
+                    <div class="col-md-12">
+                        <div id="address">
+                            @item.Address
+                        </div>
+
+
+                    </div>
+                </div>
+                <div class="row mt-1">
+                    <div class="col-md-12">
+
+                        @item.PhoneNumber
+
+
+
+                    </div>
+                </div>
+                <div class="row mt-1">
+                    <div class="col-md-12">
+
+
+                        @item.Type
+
+                    </div>
+                </div>
+                <div class="row mt-1">
+                    <div class="col-md-12">
+
+                        <span class="badge badge-success">@item.Rate</span>
+                        @foreach (var item1 in Model)
+                        {
+                            if (item1.Rates.Count() == 0)
+                            {
+                                <label class="ml-3 oyla"><span style="color:red" class="showRates"> Hemen oyla! </span> </label>
+                                <form action="/Home/AddRate">
+                                    <input type="hidden" id="id" name="id" asp-for="@item.Id" />
+                                    <div class="form-group">
+
+                                        <div class="selectbox" style="display:none">
+                                            <select class="form-control" id="rate" name="rate">
+                                                <option>1</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                                <option>4</option>
+                                                <option>5</option>
+                                                <option>6</option>
+                                                <option>7</option>
+                                                <option>8</option>
+                                                <option>9</option>
+                                                <option>10</option>
+
+
+                                            </select>
+                                            <button type="submit" class="btn btn-primary btn-sm">Kaydet</button>
+
+                                        </div>
+
+
+
+                                    </div>
+
+
+
+                                </form>
+                            }
+                            else
+                            {
+                                <label class="ml-3 oyla"><span style="color:red" class="showRates"> Zaten oy vermişsiniz! </span> </label>
+                            }
+
+                        }
+
+
+                    </div>
+                </div>
+
+            }
+            <div class="row mt-2 mt-3">
+                <div class="bd-example bd-example-tabs">
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item ">
+                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#doComment" role="tab" aria-controls="doComment" aria-selected="false">Yorum Yap</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#comment" role="tab" aria-controls="comment" aria-selected="false">Yorumlar</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="contact-tab" data-toggle="tab" href="#employee" role="tab" aria-controls="employee" aria-selected="true">Çalışanlar</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane show active fade" id="doComment" role="tabpanel" aria-labelledby="doComment-tab">
+
+
+                            <form asp-action="AddComment" asp-controller="Home">
+
+                                @foreach (var item in Model)
+                                {
+                                    <div class="input-group mb-3">
+                                        <input type="hidden" id="id" name="id" asp-for="@item.Id" />
+                                        <textarea type="text" id="commentText" class="form-control" style="width:450px" name="commentText"></textarea>
+                                        <div class="input-group-append">
+                                            <button type="submit" class="btn btn-primary btn-sm">Yorum ekle</button>
+                                        </div>
+                                    </div>
+
+
+                                }
+
+
+
+
+
+
+                            </form>
+                        </div>
+                        <div class="tab-pane fade" style="overflow: auto;height:375px;" id="comment" role="tabpanel" aria-labelledby="comment-tab">
+                            @foreach (var item in Model)
+                            {
+                                if (item.Comments.Count() == 0)
+                                {
+                                    <div class="alert alert-danger mt-3">
+                                        Şu anda yorum bulunmamaktadır.
+                                    </div>
+                                }
+                                else
+                                {
+                                    @foreach (var a in item.Comments)
+                                    {
+                                        <div class="media mt-3 text-white">
+
+                                            <img src="/Upload/010dsqnt.jpg" style="width:60px" class="mr-3" alt="...">
+                                            <div class="media-body">
+                                                <h5 class="mt-0" style="border-bottom:1px solid black">@a.UserName</h5>
+                                                <p style="width:400px;word-break:break-word;margin-right:20px">@a.CommentText</p>
+                                            </div>
+
+                                        </div>
+                                        
+
+
+
+
+                                    }
+
+
+                                }
+
+                            }
+                        </div>
+
+                        <div class="tab-pane fade" style="overflow: auto;height: 333px;" id="employee" role="tabpanel" aria-labelledby="contact-tab">
+
+
+
+                            @foreach (var item in Model)
+                            {
+                                @if (item.Employees.Count() == 0)
+                                {
+                                    <div class="alert alert-danger mt-3">
+                                        Şu anda bu dükkanda çalışan bulunmamaktadır.
+                                    </div>
+                                }
+                                else
+                                {
+                                    @foreach (var employee in item.Employees)
+                                    {
+
+                                        <div class="card mt-2" style="width: 22rem;color:black">
+
+                                            <div class="card-body">
+                                                <h5 class="card-title">@employee.Name @employee.Surname</h5>
+                                                
+
+                                            </div>
+
+                                        </div>
+
+
+
+                                    }
+
+                                }
+
+                            }
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+</div>
+<script>
+    var slideIndex = 1;
+    showSlides(slideIndex);
+
+    // Next/previous controls
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+
+    // Thumbnail image controls
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("dot");
+        if (n > slides.length) { slideIndex = 1 }
+        if (n < 1) { slideIndex = slides.length }
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" activee", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " activee";
+    }
+    var rates = document.querySelector(".showRates");
+    rates.addEventListener("click", function (event) {
+
+        var showRates = document.querySelector(".selectbox");
+        showRates.style.display = "block";
+
+
+
+    })
+    var employee = document.querySelector("#employee-tab");
+    employee.addEventListener("click", function () {
+        var div = document.querySelector("#comment");
+        div.style.display = "none"
+        var div = document.querySelector("#employee");
+        div.style.display = "block"
+    })
+    var comment = document.querySelector("#comment-tab");
+    comment.addEventListener("click", function () {
+        var div = document.querySelector("#comment");
+        div.style.display = "block"
+        var div = document.querySelector("#employee");
+        div.style.display = "none"
+    })
+
+</script>
+
+

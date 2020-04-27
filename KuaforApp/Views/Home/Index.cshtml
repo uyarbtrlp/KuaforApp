@@ -1,0 +1,248 @@
+﻿@model IEnumerable<KuaforApp.Models.Store>
+
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+<head>
+    <link rel="stylesheet" href="~/vendor/rangeslider.js/dist/rangeslider.css">
+    <style>
+        .card-body {
+            padding: 0;
+        }
+        .filter{
+            display:flex;
+            flex-direction:column;
+        }
+
+        @@media only screen and (max-width: 2000px) {
+
+            
+        }
+
+        @@media only screen and (max-width: 1200px) {
+
+           
+        }
+
+        @@media only screen and (max-width: 854px) {
+
+           
+        }
+
+        @@media only screen and (max-width: 769px) {
+            .img {
+                height: auto;
+                width: 200px;
+            }
+
+            #message {
+                top: 85px !important;
+                right: 0px;
+               
+            }
+
+            #details {
+                top: 0px !important;
+                left: 95px;
+                
+            }
+        }
+
+        @@media only screen and (max-width: 415px) {
+            .img {
+                height: auto;
+                width: 200px;
+            }
+
+            #message {
+                top: 85px !important;
+                right: 24px;
+                padding: 0.1rem 0.1rem;
+            }
+
+            #details {
+                top: 0px !important;
+                left: 22px;
+                padding: 0.1rem 0.1rem;
+            }
+        }
+
+        @@media only screen and (max-width: 412px) {
+            .img {
+                height: auto;
+                width: 200px;
+            }
+
+            #message {
+                top: 85px !important;
+                right: 28px;
+                padding: 0.1rem 0.1rem;
+            }
+
+            #details {
+                top: 0px !important;
+                left: 18px;
+                padding: 0.1rem 0.1rem;
+            }
+        }
+        @@media only screen and (max-width: 376px) {
+            .img {
+                height: auto;
+                width: 150px;
+            }
+
+            #message {
+                top: 85px !important;
+                right: 13px;
+                padding: 0.1rem 0.1rem;
+            }
+
+            #details {
+                top: 0px !important;
+                left: 32px;
+                padding: 0.1rem 0.1rem;
+            }
+        }
+
+        @@media only screen and (max-width: 361px) {
+            .img {
+                height: auto;
+                width: 150px;
+            }
+
+            #message {
+                top: 85px !important;
+                right: 28px;
+                padding: 0.1rem 0.1rem;
+            }
+
+            #details {
+                top: 0px !important;
+                left: 18px;
+                padding: 0.1rem 0.1rem;
+            }
+        }
+
+        @@media only screen and (max-width: 321px) {
+
+            .img {
+                height: auto;
+                width: 125px;
+            }
+
+            #message {
+                top: 85px !important;
+                right: 42px;
+                padding: 0.1rem 0.1rem;
+            }
+
+            #details {
+                top: 0px !important;
+                left: 2px;
+                padding: 0.1rem 0.1rem;
+            }
+        }
+    </style>
+</head>
+<div class="row">
+    <div class="col-md-3">
+        <div class="filter mt-3">
+            <form>
+                <div class="card">
+                    <div class="card-body" style="padding:1.25rem">
+                        <div class="filter">
+                            <form action="/home/index">
+                                <label>Şehir seçiniz:</label>
+
+                                <select class="form-control" id="city" name="city">
+                                    <option>Ankara</option>
+                                    <option>İstanbul</option>
+                                    <option>İzmir</option>
+
+                                </select>
+                                <label class="mt-2">Kuaför Tipini Seçiniz:</label>
+                                <label class="radio-inline"><input type="radio" name="type" value="Kadın Kuaförü" checked>Kadın Kuaförü</label>
+                                <label class="radio-inline"><input type="radio" name="type" value="Erkek Kuaförü">Erkek Kuaförü</label>
+                                <label class="mt-2">Puan aralığı seçiniz:</label>
+
+                                <form>
+                                    <input type="range" name="rate" min="0" step="1" max="10" value="0" oninput="this.form.amountInput.value=this.value" />
+                                    <input type="number" disabled name="amountInput" min="0" max="20" value="0" oninput="this.form.rate.value=this.value" />
+
+                                </form>
+
+
+                                <button type="submit" class="btn btn-primary mt-2">Ara</button>
+
+                            </form>
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </form>
+        </div>
+
+    </div>
+    <div class="col-md-9">
+        @if (Model.Count() == 0)
+        {
+            <div class="alert alert-danger mt-3">
+                Aradığınız şartlarda kuaför bulunamamıştır.
+            </div>
+        }
+        else
+        {
+            @foreach (var item in Model)
+            {
+                <div class="card mt-3"  >
+                    <div class="card-body">
+                        <div class="media">
+                            <img class="mr-3 img" width="200" height="200" src="/Upload/@item.ProfilePhoto" alt="">
+                            <div class="media-body mt-3">
+                                <h5 class="mt-0" style="word-break:break-word">@item.Name</h5>
+                                @item.Description
+                            </div>
+                            <a href="/Home/Details/@item.Id" style="position:relative;top:170px" id="details" class="btn btn-primary btn-sm">Detayları Gör</a>
+                            <a href="/Chat/Index/@item.Id" style="position:relative;top:170px" id="message" class="btn btn-primary btn-sm">Mesaj Gönder</a>
+                        </div>
+
+
+                    </div>
+                </div>
+
+
+            }
+
+        }
+
+
+    </div>
+
+</div>
+@section Scripts{
+    <script src="~/vendor/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/vendor/rangeslider.js/dist/rangeslider.min.js"></script>
+
+    <script>
+        // Initialize a new plugin instance for all
+        // e.g. $('input[type="range"]') elements.
+        $('input[type="range"]').rangeslider();
+
+        // Destroy all plugin instances created from the
+        // e.g. $('input[type="range"]') elements.
+        $('input[type="range"]').rangeslider('destroy');
+
+        // Update all rangeslider instances for all
+        // e.g. $('input[type="range"]') elements.
+        // Usefull if you changed some attributes e.g. `min` or `max` etc.
+        $('input[type="range"]').rangeslider('update', true);
+    </script>
+}
+
+

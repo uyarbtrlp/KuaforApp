@@ -1,0 +1,17 @@
+﻿@model IEnumerable<KuaforApp.Contexts.Chat>
+@{
+    ViewData["Title"] = "Default";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@foreach (var item in Model)
+{
+    <a href="/Chat/ChatMessages/@item.Id" class="btn btn-primary">@item.UserName</a>
+}
+
+
+@section Scripts {
+    <script src="~/lib/signalr/signalr.js"></script>
+
+
+}

@@ -1,0 +1,83 @@
+﻿@model IEnumerable<KuaforApp.Contexts.Product>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1 class="text-white">Ürünler</h1>
+<hr style="border-bottom:0.5px solid white" />
+
+<p>
+    <a asp-action="Create" class="btn btn-success"><i class="fas fa-plus" style="margin-right:5px"></i>Yeni Ürün Ekle</a>
+</p>
+<div class="row">
+    @if (Model.Count() == 0)
+    {
+        <div class="alert alert-danger">Şu anda ürününüz bulunmamaktadır.</div>
+    }
+    else
+    {
+        @foreach (var item in Model)
+        {
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body ">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="flex-row d-flex">
+                                    <p class="font-weight-bold">Id</p>
+                                    <p style="margin-left:10%">@item.Id</p>
+                                </div>
+                                <div class="flex-row d-flex">
+                                    <p class="font-weight-bold">Ürün İsmi</p>
+                                    <p style="margin-left:10%">@item.Name</p>
+                                </div>
+                                <div class="flex-row d-flex">
+                                    <p class="font-weight-bold">Ürün Fiyatı</p>
+                                    <p style="margin-left:10%">@item.Price</p>
+                                </div>
+                                <div class="flex-row d-flex">
+                                    <p class="font-weight-bold">Ürün Açıklaması</p>
+                                    <p style="margin-left:10%">@item.Description</p>
+                                </div>
+                                <div class="flex-row d-flex">
+                                    <p class="font-weight-bold">Dükkan İsmi</p>
+                                    <p style="margin-left:10%">@item.Store.Name</p>
+                                </div>
+
+
+
+                            </div>
+
+                        </div>
+
+
+
+
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <p>
+                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary btn-sm"><i class="fas fa-edit" style="margin-right:5px"></i>Güncelle</a> |
+                        <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info text-white btn-sm"><i class="fas fa-info-circle" style="margin-right:5px"></i>Detay Göster</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt" style="margin-right:5px"></i>Sil</a>
+                    </p>
+                </div>
+            </div>
+
+
+
+
+
+
+        }
+
+    }
+
+
+
+</div>
+
+
+

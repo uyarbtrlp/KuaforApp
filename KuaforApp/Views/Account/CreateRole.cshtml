@@ -1,0 +1,17 @@
+﻿@model String
+@{
+    ViewData["Title"] = "CreateRole";
+}
+
+<h1>CreateRole</h1>
+@Html.ValidationSummary()
+@using (Html.BeginForm())
+{
+    <div class="form-group">
+
+        <label>Username</label>
+        <input name="name" value="@Model" class="form-control" />
+        <button type="submit" class="btn btn-primary mt-5">Create</button>
+    </div>
+}
+

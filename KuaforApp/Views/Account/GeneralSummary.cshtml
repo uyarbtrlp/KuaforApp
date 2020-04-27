@@ -1,0 +1,179 @@
+﻿@model IEnumerable<KuaforApp.Models.Store>
+@{
+    ViewData["Title"] = "GeneralSummary";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div id="accordion">
+    <div class="card">
+        <div class="card-header" id="headingOne">
+            <h5 class="mb-0">
+                <p>Son 1 ay içerisinde @ViewBag.TotalProduct adet ürün aldınız. Bu ürünlerin toplam fiyatı @ViewBag.TotalPrice'dır.</p>
+                <button class="btn btn-primary" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    Detaylar
+                </button>
+            </h5>
+        </div>
+
+        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+            <div class="row">
+                @foreach (var item in Model)
+                {
+                    @foreach (var product in item.Products)
+                    {
+                        <div class="col-md-4">
+                            <div class="card mt-3 mb-2">
+                                <div class="card-body ">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="flex-row d-flex">
+                                                <p class="font-weight-bold">Id</p>
+                                                <p style="margin-left:10%">@product.Id</p>
+                                            </div>
+
+                                            <div class="flex-row d-flex">
+                                                <p class="font-weight-bold">İsim</p>
+                                                <p style="margin-left:10%">@product.Name</p>
+                                            </div>
+                                            <div class="flex-row d-flex">
+                                                <p class="font-weight-bold">Fiyatı</p>
+                                                <p style="margin-left:10%">@product.Price</p>
+                                            </div>
+                                            <div class="flex-row d-flex">
+                                                <p class="font-weight-bold">Açıklaması</p>
+                                                <p style="margin-left:10%">@product.Description</p>
+                                            </div>
+
+
+
+                                        </div>
+
+                                    </div>
+
+
+
+
+                                </div>
+                                <div class="card-footer">
+                                    <p>
+                                        <a asp-controller="Products" asp-action="Edit" asp-route-id="@product.Id" class="btn btn-primary btn-sm"><i class="fas fa-edit" style="margin-right:5px"></i>Güncelle</a> |
+                                        <a asp-controller="Products" asp-action="Details" asp-route-id="@product.Id" class="btn btn-info text-white btn-sm"><i class="fas fa-info-circle" style="margin-right:5px"></i>Detay Göster</a> |
+                                        <a asp-controller="Products" asp-action="Delete" asp-route-id="@product.Id" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt" style="margin-right:5px"></i>Sil</a>
+                                    </p>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    }
+
+
+
+
+
+
+
+                }
+
+
+            </div>
+
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header" id="headingTwo">
+            <h5 class="mb-0">
+                <p>Son 1 ay içerisinde @ViewBag.EmployeeCount çalışanınız toplamda @ViewBag.UserCount müşteri almıştır.</p>
+                <button class="btn btn-primary collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    Detaylar
+                </button>
+            </h5>
+        </div>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+            <div class="row">
+                @foreach (var item in Model)
+                {
+                    if (item.ApprovedUsers.Count() == 0)
+                    {
+                        <div class="alert alert-danger">Şu anda gelen müşteriniz bulunmamaktadır</div>
+                    }
+                    else
+                    {
+                        @foreach (var product in item.ApprovedUsers)
+                        {
+                            <div class="col-md-4">
+                                <div class="card mt-3 mb-2">
+                                    <div class="card-body ">
+                                        <div class="row">
+                                            <div class="col-md-12">
+
+
+                                                <div class="flex-row d-flex">
+                                                    <p class="font-weight-bold">İsim</p>
+                                                    <p style="margin-left:10%">@product.Name</p>
+                                                </div>
+                                                <div class="flex-row d-flex">
+                                                    <p class="font-weight-bold">Soyisim</p>
+                                                    <p style="margin-left:10%">@product.Surname</p>
+                                                </div>
+                                                <div class="flex-row d-flex">
+                                                    <p class="font-weight-bold">Telefon Numarası</p>
+                                                    <p style="margin-left:10%">@product.PhoneNumber</p>
+                                                </div>
+                                                <div class="flex-row d-flex">
+                                                    <p class="font-weight-bold">Geldiği Saat</p>
+                                                    <p style="margin-left:10%">@product.TimeOfArrival</p>
+                                                </div>
+                                                <div class="flex-row d-flex">
+                                                    <p class="font-weight-bold">Yaptırdığı İşlemler</p>
+                                                    <p style="margin-left:10%">@product.Transactions</p>
+                                                </div>
+                                                <div class="flex-row d-flex">
+                                                    <p class="font-weight-bold">Ödeme</p>
+                                                    <p style="margin-left:10%">@product.Payment</p>
+                                                </div>
+                                                <div class="flex-row d-flex">
+                                                    <p class="font-weight-bold">Ödeme</p>
+                                                    <p style="margin-left:10%">@product.Employee.Name</p>
+                                                </div>
+
+
+
+
+                                            </div>
+
+                                        </div>
+
+
+
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        }
+
+                    }
+
+
+
+
+
+
+
+
+                }
+
+
+            </div>
+
+
+
+
+
+
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,87 @@
+﻿@model IEnumerable<KuaforApp.Contexts.EmployeesUser>
+@{
+    ViewData["Title"] = "DetailsUser";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+    <div class="row">
+        @if (Model.Count() == 0)
+        {
+            <div class="alert alert-danger">Bu çalışanın müşterisi bulunmamaktadır.</div>
+        }
+        else
+        {
+            @foreach (var item in Model)
+            {
+                <div class="col-md-4">
+                    <div class="card mb-3">
+                        <div class="card-body ">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="flex-row d-flex">
+                                        <p class="font-weight-bold">Id</p>
+                                        <p style="margin-left:10%">@item.Id</p>
+                                    </div>
+                                    <div class="flex-row d-flex">
+                                        <p class="font-weight-bold">İsim</p>
+                                        <p style="margin-left:10%">@item.Name</p>
+                                    </div>
+                                    <div class="flex-row d-flex">
+                                        <p class="font-weight-bold">Soyisim</p>
+                                        <p style="margin-left:10%">@item.Surname</p>
+                                    </div>
+                                    <div class="flex-row d-flex">
+                                        <p class="font-weight-bold">Telefon Numarası</p>
+                                        <p style="margin-left:10%">@item.PhoneNumber</p>
+                                    </div>
+                                    <div class="flex-row d-flex">
+                                        <p class="font-weight-bold">Geleceği Saat</p>
+                                        <p style="margin-left:10%">@item.TimeOfArrival</p>
+                                    </div>
+                                    <div class="flex-row d-flex">
+                                        <p class="font-weight-bold">Yapılacak İşlemler</p>
+                                        <p style="margin-left:10%">@item.Transactions</p>
+                                    </div>
+                                    <div class="flex-row d-flex">
+                                        <p class="font-weight-bold">Ödeme</p>
+                                        <p style="margin-left:10%">@item.Payment</p>
+                                    </div>
+
+
+                                </div>
+
+                            </div>
+
+
+
+
+                        </div>
+                        <div class="card-footer">
+                            <p>
+                                <a href="/Account/Approve/@item.Id" class="btn btn-success btn-sm"><i class="fas fa-plus mr-2"></i>Tamamla</a>
+                                <a href="/Account/UpdateUser/@item.Id" class="btn btn-primary btn-sm"><i class="fas fa-edit mr-2"></i>Güncelle</a>
+                                <a href="/Account/Delete/@item.Id" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt  mr-2"></i>Sil</a>
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+
+
+
+            }
+
+        }
+
+
+
+    </div>
+
+      
+
+
+
+
+<!-- Modal -->
